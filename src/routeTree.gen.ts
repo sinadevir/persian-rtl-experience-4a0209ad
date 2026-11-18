@@ -10,33 +10,310 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccessRouteImport } from './routes/access'
+import { Route as AuditRouteImport } from './routes/audit'
+import { Route as BankingRouteImport } from './routes/banking'
+import { Route as CalendarRouteImport } from './routes/calendar'
+import { Route as IntegrationRouteImport } from './routes/integration'
+import { Route as OrganizationRouteImport } from './routes/organization'
+import { Route as OwnershipRouteImport } from './routes/ownership'
+import { Route as ReferenceRouteImport } from './routes/reference'
+import { Route as RegistrationRouteImport } from './routes/registration'
+import { Route as RegulationsRouteImport } from './routes/regulations'
+import { Route as RelationshipsRouteImport } from './routes/relationships'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as UsageRouteImport } from './routes/usage'
+import { Route as CasesIndexRouteImport } from './routes/cases.index'
+import { Route as CasesIdRouteImport } from './routes/cases.$id'
+import { Route as CustomersIndexRouteImport } from './routes/customers.index'
+import { Route as CustomersIdRouteImport } from './routes/customers.$id'
+import { Route as PartiesIndexRouteImport } from './routes/parties.index'
+import { Route as PartiesIdRouteImport } from './routes/parties.$id'
+import { Route as PremisesIndexRouteImport } from './routes/premises.index'
+import { Route as PremisesIdRouteImport } from './routes/premises.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessRoute = AccessRouteImport.update({
+  id: '/access',
+  path: '/access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BankingRoute = BankingRouteImport.update({
+  id: '/banking',
+  path: '/banking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalendarRoute = CalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationRoute = IntegrationRouteImport.update({
+  id: '/integration',
+  path: '/integration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrganizationRoute = OrganizationRouteImport.update({
+  id: '/organization',
+  path: '/organization',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnershipRoute = OwnershipRouteImport.update({
+  id: '/ownership',
+  path: '/ownership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceRoute = ReferenceRouteImport.update({
+  id: '/reference',
+  path: '/reference',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegistrationRoute = RegistrationRouteImport.update({
+  id: '/registration',
+  path: '/registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegulationsRoute = RegulationsRouteImport.update({
+  id: '/regulations',
+  path: '/regulations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RelationshipsRoute = RelationshipsRouteImport.update({
+  id: '/relationships',
+  path: '/relationships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsageRoute = UsageRouteImport.update({
+  id: '/usage',
+  path: '/usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasesIndexRoute = CasesIndexRouteImport.update({
+  id: '/cases/',
+  path: '/cases/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasesIdRoute = CasesIdRouteImport.update({
+  id: '/cases/$id',
+  path: '/cases/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersIndexRoute = CustomersIndexRouteImport.update({
+  id: '/customers/',
+  path: '/customers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersIdRoute = CustomersIdRouteImport.update({
+  id: '/customers/$id',
+  path: '/customers/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartiesIndexRoute = PartiesIndexRouteImport.update({
+  id: '/parties/',
+  path: '/parties/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartiesIdRoute = PartiesIdRouteImport.update({
+  id: '/parties/$id',
+  path: '/parties/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PremisesIndexRoute = PremisesIndexRouteImport.update({
+  id: '/premises/',
+  path: '/premises/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PremisesIdRoute = PremisesIdRouteImport.update({
+  id: '/premises/$id',
+  path: '/premises/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/access': typeof AccessRoute
+  '/audit': typeof AuditRoute
+  '/banking': typeof BankingRoute
+  '/calendar': typeof CalendarRoute
+  '/integration': typeof IntegrationRoute
+  '/organization': typeof OrganizationRoute
+  '/ownership': typeof OwnershipRoute
+  '/reference': typeof ReferenceRoute
+  '/registration': typeof RegistrationRoute
+  '/regulations': typeof RegulationsRoute
+  '/relationships': typeof RelationshipsRoute
+  '/service-areas': typeof ServiceAreasRoute
+  '/usage': typeof UsageRoute
+  '/cases/$id': typeof CasesIdRoute
+  '/customers/$id': typeof CustomersIdRoute
+  '/parties/$id': typeof PartiesIdRoute
+  '/premises/$id': typeof PremisesIdRoute
+  '/cases/': typeof CasesIndexRoute
+  '/customers/': typeof CustomersIndexRoute
+  '/parties/': typeof PartiesIndexRoute
+  '/premises/': typeof PremisesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/access': typeof AccessRoute
+  '/audit': typeof AuditRoute
+  '/banking': typeof BankingRoute
+  '/calendar': typeof CalendarRoute
+  '/integration': typeof IntegrationRoute
+  '/organization': typeof OrganizationRoute
+  '/ownership': typeof OwnershipRoute
+  '/reference': typeof ReferenceRoute
+  '/registration': typeof RegistrationRoute
+  '/regulations': typeof RegulationsRoute
+  '/relationships': typeof RelationshipsRoute
+  '/service-areas': typeof ServiceAreasRoute
+  '/usage': typeof UsageRoute
+  '/cases/$id': typeof CasesIdRoute
+  '/customers/$id': typeof CustomersIdRoute
+  '/parties/$id': typeof PartiesIdRoute
+  '/premises/$id': typeof PremisesIdRoute
+  '/cases': typeof CasesIndexRoute
+  '/customers': typeof CustomersIndexRoute
+  '/parties': typeof PartiesIndexRoute
+  '/premises': typeof PremisesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/access': typeof AccessRoute
+  '/audit': typeof AuditRoute
+  '/banking': typeof BankingRoute
+  '/calendar': typeof CalendarRoute
+  '/integration': typeof IntegrationRoute
+  '/organization': typeof OrganizationRoute
+  '/ownership': typeof OwnershipRoute
+  '/reference': typeof ReferenceRoute
+  '/registration': typeof RegistrationRoute
+  '/regulations': typeof RegulationsRoute
+  '/relationships': typeof RelationshipsRoute
+  '/service-areas': typeof ServiceAreasRoute
+  '/usage': typeof UsageRoute
+  '/cases/$id': typeof CasesIdRoute
+  '/customers/$id': typeof CustomersIdRoute
+  '/parties/$id': typeof PartiesIdRoute
+  '/premises/$id': typeof PremisesIdRoute
+  '/cases/': typeof CasesIndexRoute
+  '/customers/': typeof CustomersIndexRoute
+  '/parties/': typeof PartiesIndexRoute
+  '/premises/': typeof PremisesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/access'
+    | '/audit'
+    | '/banking'
+    | '/calendar'
+    | '/integration'
+    | '/organization'
+    | '/ownership'
+    | '/reference'
+    | '/registration'
+    | '/regulations'
+    | '/relationships'
+    | '/service-areas'
+    | '/usage'
+    | '/cases/$id'
+    | '/customers/$id'
+    | '/parties/$id'
+    | '/premises/$id'
+    | '/cases/'
+    | '/customers/'
+    | '/parties/'
+    | '/premises/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/access'
+    | '/audit'
+    | '/banking'
+    | '/calendar'
+    | '/integration'
+    | '/organization'
+    | '/ownership'
+    | '/reference'
+    | '/registration'
+    | '/regulations'
+    | '/relationships'
+    | '/service-areas'
+    | '/usage'
+    | '/cases/$id'
+    | '/customers/$id'
+    | '/parties/$id'
+    | '/premises/$id'
+    | '/cases'
+    | '/customers'
+    | '/parties'
+    | '/premises'
+  id:
+    | '__root__'
+    | '/'
+    | '/access'
+    | '/audit'
+    | '/banking'
+    | '/calendar'
+    | '/integration'
+    | '/organization'
+    | '/ownership'
+    | '/reference'
+    | '/registration'
+    | '/regulations'
+    | '/relationships'
+    | '/service-areas'
+    | '/usage'
+    | '/cases/$id'
+    | '/customers/$id'
+    | '/parties/$id'
+    | '/premises/$id'
+    | '/cases/'
+    | '/customers/'
+    | '/parties/'
+    | '/premises/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessRoute: typeof AccessRoute
+  AuditRoute: typeof AuditRoute
+  BankingRoute: typeof BankingRoute
+  CalendarRoute: typeof CalendarRoute
+  IntegrationRoute: typeof IntegrationRoute
+  OrganizationRoute: typeof OrganizationRoute
+  OwnershipRoute: typeof OwnershipRoute
+  ReferenceRoute: typeof ReferenceRoute
+  RegistrationRoute: typeof RegistrationRoute
+  RegulationsRoute: typeof RegulationsRoute
+  RelationshipsRoute: typeof RelationshipsRoute
+  ServiceAreasRoute: typeof ServiceAreasRoute
+  UsageRoute: typeof UsageRoute
+  CasesIdRoute: typeof CasesIdRoute
+  CustomersIdRoute: typeof CustomersIdRoute
+  PartiesIdRoute: typeof PartiesIdRoute
+  PremisesIdRoute: typeof PremisesIdRoute
+  CasesIndexRoute: typeof CasesIndexRoute
+  CustomersIndexRoute: typeof CustomersIndexRoute
+  PartiesIndexRoute: typeof PartiesIndexRoute
+  PremisesIndexRoute: typeof PremisesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +325,179 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/access': {
+      id: '/access'
+      path: '/access'
+      fullPath: '/access'
+      preLoaderRoute: typeof AccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/banking': {
+      id: '/banking'
+      path: '/banking'
+      fullPath: '/banking'
+      preLoaderRoute: typeof BankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calendar': {
+      id: '/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof CalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integration': {
+      id: '/integration'
+      path: '/integration'
+      fullPath: '/integration'
+      preLoaderRoute: typeof IntegrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/organization': {
+      id: '/organization'
+      path: '/organization'
+      fullPath: '/organization'
+      preLoaderRoute: typeof OrganizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ownership': {
+      id: '/ownership'
+      path: '/ownership'
+      fullPath: '/ownership'
+      preLoaderRoute: typeof OwnershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference': {
+      id: '/reference'
+      path: '/reference'
+      fullPath: '/reference'
+      preLoaderRoute: typeof ReferenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/registration': {
+      id: '/registration'
+      path: '/registration'
+      fullPath: '/registration'
+      preLoaderRoute: typeof RegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/regulations': {
+      id: '/regulations'
+      path: '/regulations'
+      fullPath: '/regulations'
+      preLoaderRoute: typeof RegulationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/relationships': {
+      id: '/relationships'
+      path: '/relationships'
+      fullPath: '/relationships'
+      preLoaderRoute: typeof RelationshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/usage': {
+      id: '/usage'
+      path: '/usage'
+      fullPath: '/usage'
+      preLoaderRoute: typeof UsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cases/': {
+      id: '/cases/'
+      path: '/cases'
+      fullPath: '/cases/'
+      preLoaderRoute: typeof CasesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cases/$id': {
+      id: '/cases/$id'
+      path: '/cases/$id'
+      fullPath: '/cases/$id'
+      preLoaderRoute: typeof CasesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers/': {
+      id: '/customers/'
+      path: '/customers'
+      fullPath: '/customers/'
+      preLoaderRoute: typeof CustomersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers/$id': {
+      id: '/customers/$id'
+      path: '/customers/$id'
+      fullPath: '/customers/$id'
+      preLoaderRoute: typeof CustomersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parties/': {
+      id: '/parties/'
+      path: '/parties'
+      fullPath: '/parties/'
+      preLoaderRoute: typeof PartiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parties/$id': {
+      id: '/parties/$id'
+      path: '/parties/$id'
+      fullPath: '/parties/$id'
+      preLoaderRoute: typeof PartiesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/premises/': {
+      id: '/premises/'
+      path: '/premises'
+      fullPath: '/premises/'
+      preLoaderRoute: typeof PremisesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/premises/$id': {
+      id: '/premises/$id'
+      path: '/premises/$id'
+      fullPath: '/premises/$id'
+      preLoaderRoute: typeof PremisesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessRoute: AccessRoute,
+  AuditRoute: AuditRoute,
+  BankingRoute: BankingRoute,
+  CalendarRoute: CalendarRoute,
+  IntegrationRoute: IntegrationRoute,
+  OrganizationRoute: OrganizationRoute,
+  OwnershipRoute: OwnershipRoute,
+  ReferenceRoute: ReferenceRoute,
+  RegistrationRoute: RegistrationRoute,
+  RegulationsRoute: RegulationsRoute,
+  RelationshipsRoute: RelationshipsRoute,
+  ServiceAreasRoute: ServiceAreasRoute,
+  UsageRoute: UsageRoute,
+  CasesIdRoute: CasesIdRoute,
+  CustomersIdRoute: CustomersIdRoute,
+  PartiesIdRoute: PartiesIdRoute,
+  PremisesIdRoute: PremisesIdRoute,
+  CasesIndexRoute: CasesIndexRoute,
+  CustomersIndexRoute: CustomersIndexRoute,
+  PartiesIndexRoute: PartiesIndexRoute,
+  PremisesIndexRoute: PremisesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
