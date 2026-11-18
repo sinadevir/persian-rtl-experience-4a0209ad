@@ -133,8 +133,18 @@ function Wizard() {
             <CardHeader><CardTitle className="text-base">متقاضی اشتراک</CardTitle><CardDescription>اگر متقاضی قبلاً در سامانه ثبت شده، او را جستجو کنید تا پرونده تکراری ساخته نشود.</CardDescription></CardHeader>
             <CardContent className="space-y-4">
               <RadioGroup value={applicant.mode === "existing" ? "existing" : applicant.kind} onValueChange={(v) => { setErrors({}); setApplicant(v === "existing" ? { mode: "existing", id: "", label: "" } : { mode: "new", kind: v as "individual" | "organization" }); }} className="grid gap-2 sm:grid-cols-3">
-                {[{ v: "existing", l: "شخص ثبت‌شده", I: UserCheck }, { v: "individual", l: "شخص حقیقی جدید", I: UserPlus }, { v: "organization", l: "شخص حقوقی جدید", I: Building2 }].map(({ v, l, I }) => (
-                  <Label key={v} className="flex cursor-pointer items-center gap-2 rounded-lg border p-3 has-[:checked]:border-primary has-[:checked]:bg-accent"><RadioGroupItem value={v} /><I className="size-4 text-primary" />{l}</Label>
+                {[
+                  { v: "existing", l: "شخص ثبت‌شده", d: "متقاضی قبلاً در سامانه ثبت شده است", I: UserCheck },
+                  { v: "individual", l: "شخص حقیقی جدید", d: "ثبت فرد با نام و کد ملی", I: UserPlus },
+                  { v: "organization", l: "شخص حقوقی جدید", d: "ثبت شرکت یا سازمان با شناسه ملی", I: Building2 },
+                ].map(({ v, l, d, I }) => (
+                  <Label key={v} className="flex cursor-pointer items-start gap-3 rounded-lg border bg-card p-3 text-start transition-colors hover:border-primary/50 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-accent has-[[data-state=checked]]:ring-1 has-[[data-state=checked]]:ring-primary">
+                    <RadioGroupItem value={v} className="mt-0.5 shrink-0" />
+                    <span className="grid min-w-0 gap-1">
+                      <span className="flex items-center gap-2 font-semibold"><I className="size-4 shrink-0 text-primary" />{l}</span>
+                      <span className="text-xs font-normal leading-5 text-muted-foreground">{d}</span>
+                    </span>
+                  </Label>
                 ))}
               </RadioGroup>
               {applicant.mode === "existing" ? (

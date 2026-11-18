@@ -14,6 +14,9 @@ import { DataTable, type Column } from "@/components/cis/data-table";
 import { StatCard, InfoList } from "@/components/cis/blocks";
 import { QueryBoundary } from "@/components/cis/query-state";
 import { StatusBadge } from "@/components/cis/status-badge";
+import { RecordDetails } from "@/components/cis/record-details";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   Sheet,
@@ -51,6 +54,9 @@ const columns: Column<Message>[] = [
   },
   { key: "error", header: "آخرین خطا" },
 ];
+
+/** The message body, wherever the service puts it. */
+const payloadOf = (r: Record<string, unknown>) => r.payload ?? r.Payload ?? r.content ?? r.Content ?? r.body ?? r.Body ?? r.data ?? r.Data;
 
 function IntegrationPage() {
   const allowedRetry = useCan(P.IntegrationMonitor);
@@ -199,25 +205,39 @@ function IntegrationPage() {
         <SheetContent className="w-full overflow-y-auto sm:max-w-3xl">
           <SheetHeader>
             <SheetTitle>جزئیات پیام</SheetTitle>
-            <SheetDescription>پاسخ خام سرویس برای بررسی فنی</SheetDescription>
+            <SheetDescription>مشخصات پیام و محتوای آن، همان‌طور که سرویس فرستاده است</SheetDescription>
           </SheetHeader>
           {detail && (
-            <div className="space-y-4 p-4">
+            <div className="space-y-5 p-4">
               <InfoList
                 cols={2}
                 items={[
-                  ["شناسه", detail.id],
-                  ["نوع", detail.type],
+                  ["شناسه پیام", detail.id || "—"],
+                  ["نوع پیام", detail.type || "—"],
+                  ["مبدأ / مصرف‌کننده", detail.source || "—"],
                   ["وضعیت", <StatusBadge status={detail.status} />],
-                  ["خطا", detail.error || "—"],
+                  ["زمان", detail.occurredAt ? toJalaliDateTime(detail.occurredAt) : "—"],
+                  ["تعداد تلاش", detail.attempts === undefined ? "—" : faNum(detail.attempts)],
+                  ["آخرین خطا", detail.error || "—"],
                 ]}
               />
-              <pre
-                dir="ltr"
-                className="overflow-x-auto whitespace-pre-wrap break-words rounded-lg bg-muted p-4 text-left text-xs"
-              >
-                {JSON.stringify(detail.raw, null, 2)}
-              </pre>
+              {payloadOf(detail.raw) !== undefined && (
+                <section className="space-y-2">
+                  <h2 className="font-semibold">محتوای پیام</h2>
+                  <RecordDetails value={payloadOf(detail.raw)} />
+                </section>
+              )}
+              <Collapsible>
+                <CollapsibleTrigger asChild>
+                  <Button variant="outline" size="sm" className="group">
+                    همه اطلاعات دریافتی
+                    <ChevronDown className="transition-transform group-data-[state=open]:rotate-180" />
+                  </Button>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="pt-3">
+                  <RecordDetails value={detail.raw} />
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           )}
         </SheetContent>

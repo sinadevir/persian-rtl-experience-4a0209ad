@@ -5,6 +5,7 @@ import { auditQuery, type AuditEntry } from "@/features/foundation/operations";
 import { PageHeader } from "@/components/cis/app-shell";
 import { DataTable } from "@/components/cis/data-table";
 import { InfoList } from "@/components/cis/blocks";
+import { RecordDetails } from "@/components/cis/record-details";
 import { ForbiddenState } from "@/components/cis/query-state";
 import {
   Sheet,
@@ -24,14 +25,6 @@ export const Route = createFileRoute("/audit")({
   component: AuditPage,
 });
 
-function pretty(value: string) {
-  if (!value) return "—";
-  try {
-    return JSON.stringify(JSON.parse(value) as unknown, null, 2);
-  } catch {
-    return value;
-  }
-}
 
 function AuditPage() {
   const permitted = useCan(P.AuditRead);
@@ -106,7 +99,7 @@ function AuditEntries() {
         <SheetContent className="w-full overflow-y-auto sm:max-w-5xl">
           <SheetHeader>
             <SheetTitle>جزئیات رویداد حسابرسی</SheetTitle>
-            <SheetDescription>مقادیر پیش و پس از عملیات، مطابق پاسخ سرور</SheetDescription>
+            <SheetDescription>مقادیر پیش و پس از عملیات</SheetDescription>
           </SheetHeader>
           {selected && (
             <div className="space-y-5 p-4">
@@ -126,21 +119,15 @@ function AuditEntries() {
               <div className="grid min-w-0 gap-4 lg:grid-cols-2">
                 <section className="min-w-0 space-y-2">
                   <h2 className="font-semibold">پیش از تغییر</h2>
-                  <pre
-                    dir="ltr"
-                    className="max-h-[60vh] overflow-auto whitespace-pre-wrap break-words rounded-lg bg-muted p-4 text-left text-xs"
-                  >
-                    {pretty(selected.before)}
-                  </pre>
+                  <div className="max-h-[60vh] overflow-auto rounded-lg bg-muted p-4">
+                    <RecordDetails value={selected.before} />
+                  </div>
                 </section>
                 <section className="min-w-0 space-y-2">
                   <h2 className="font-semibold">پس از تغییر</h2>
-                  <pre
-                    dir="ltr"
-                    className="max-h-[60vh] overflow-auto whitespace-pre-wrap break-words rounded-lg bg-muted p-4 text-left text-xs"
-                  >
-                    {pretty(selected.after)}
-                  </pre>
+                  <div className="max-h-[60vh] overflow-auto rounded-lg bg-muted p-4">
+                    <RecordDetails value={selected.after} />
+                  </div>
                 </section>
               </div>
             </div>
