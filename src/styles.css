@@ -127,6 +127,12 @@
     border-color: var(--color-border);
   }
 
+  /* The whole system reads right-to-left, even if the page's dir attribute is lost
+     (browser translation, embedding, another host page). Tables included. */
+  html, body { direction: rtl; }
+  table, thead, tbody, tfoot, tr, th, td { direction: rtl; }
+  th, td { text-align: right; }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
