@@ -75,7 +75,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="hidden items-center gap-1.5 text-sm text-muted-foreground xl:inline-flex"><CalendarDays className="size-4" />{toJalaliLong(new Date())}</span>
             <DropdownMenu>
               <DropdownMenuTrigger asChild><button aria-label="حساب کاربری" className="rounded-full focus-visible:ring-2 focus-visible:ring-ring"><Avatar className="size-8"><AvatarFallback className="bg-secondary text-xs">{initials}</AvatarFallback></Avatar></button></DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" alignOffset={12}>
                 <DropdownMenuLabel>{session?.displayName ?? "کارشناس سامانه"}<div className="text-xs font-normal text-muted-foreground">{perms.roles.length ? perms.roles.join("، ") : session?.mode === "dev" ? "ورود حالت توسعه" : "کاربر سازمان"}</div></DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem disabled className="text-xs">نسخه آزمایشی — بدون اتصال به سرور</DropdownMenuItem>

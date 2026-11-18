@@ -203,7 +203,7 @@ export function DataTable<T>({ rows, columns, rowKey, searchPlaceholder = "جس�
                     {actions.some((a) => !a.show || a.show(r)) && (
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild><Button variant="ghost" size="icon" className="size-8" aria-label="عملیات ردیف"><MoreHorizontal /></Button></DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
+                        <DropdownMenuContent align="end" alignOffset={12}>
                           {actions.filter((a) => !a.show || a.show(r)).map((a) => (
                             <DropdownMenuItem key={a.label} onClick={() => a.onClick(r)} className={cn(a.destructive && "text-destructive focus:text-destructive")}>{a.icon && <a.icon />}{a.label}</DropdownMenuItem>
                           ))}
